@@ -11,6 +11,8 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     
+    var annotationsArray = [MKPointAnnotation]()
+    
     let mapView: MKMapView  = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +37,7 @@ class MapViewController: UIViewController {
         resetButton.backgroundColor = .red.withAlphaComponent(0.5)
         resetButton.layer.cornerRadius = 10
         resetButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-
+        
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.isHidden = true
         
@@ -48,7 +50,7 @@ class MapViewController: UIViewController {
         routeButton.backgroundColor = .red.withAlphaComponent(0.5)
         routeButton.layer.cornerRadius = 10
         routeButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-
+        
         routeButton.translatesAutoresizingMaskIntoConstraints = false
         routeButton.isHidden = true
         
@@ -63,57 +65,42 @@ class MapViewController: UIViewController {
         resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
         routeButton.addTarget(self, action: #selector(routeButtonTapped), for: .touchUpInside)
         setConstrainsButtons()
+        
+        mapView.delegate = self
     }
     
     @objc func addAddressButtonTapped() {
         alertAddAddress(title: "Add Address", placeholder: "Please enter address") { text in
-            print(text)
+            self.setupPlacemark(addressPlace: text)
         }
     }
     
     @objc func resetButtonTapped() {
-        print("reset")
+        mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
+        annotationsArray = [MKPointAnnotation]()
+        routeButton.isHidden = true
+        resetButton.isHidden = true
+        
     }
     
     @objc func routeButtonTapped() {
-        print("route")
+        for index in 0...annotationsArray.count - 2 {
+            createDirectionRequest(
+                startCoordinate: annotationsArray[index].coordinate,
+                destinationCoordinate: annotationsArray[index + 1].coordinate)
+        }
+        mapView.showAnnotations(annotationsArray, animated: true)
     }
 }
 
-extension MapViewController {
+extension MapViewController: MKMapViewDelegate {
     
-    func setConstraints() {
-        view.addSubview(mapView)
-        NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        ])
-    }
-    
-    func setConstrainsButtons() {
-        mapView.addSubview(addAddress)
-        NSLayoutConstraint.activate([
-            addAddress.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 50),
-            addAddress.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
-            addAddress.widthAnchor.constraint(equalToConstant: 150)
-        ])
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-        mapView.addSubview(routeButton)
-        NSLayoutConstraint.activate([
-            routeButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 20),
-            routeButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -30),
-            routeButton.heightAnchor.constraint(equalToConstant: 50),
-            routeButton.widthAnchor.constraint(equalToConstant: 120)
-        ])
+        let render = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        render.strokeColor = .red
         
-        mapView.addSubview(resetButton)
-        NSLayoutConstraint.activate([
-            resetButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
-            resetButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -30),
-            resetButton.heightAnchor.constraint(equalToConstant: 50),
-            resetButton.widthAnchor.constraint(equalToConstant: 120)
-        ])
+        return render
     }
 }

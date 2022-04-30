@@ -11,7 +11,6 @@ import UIKit
 extension MapViewController {
     
     func alertAddAddress(title: String, placeholder: String, completionHandler: @escaping (String) -> Void) {
-        
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
             textField.placeholder = placeholder
@@ -34,7 +33,6 @@ extension MapViewController {
     }
     
     func errorAlert(title: String, message: String) {
-        
         let alertErrorController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okErrorAction = UIAlertAction(title: "OK", style: .default)
         

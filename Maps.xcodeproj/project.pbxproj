@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2AA577281967460049DEE6 /* MapViewController + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AA576281967460049DEE6 /* MapViewController + Constraints.swift */; };
+		8C2AA57B28196BE60049DEE6 /* MapViewController + ButtonsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AA57A28196BE60049DEE6 /* MapViewController + ButtonsLogic.swift */; };
 		8C5557A128145D5D002B687A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5557A028145D5D002B687A /* AppDelegate.swift */; };
 		8C5557A328145D5D002B687A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5557A228145D5D002B687A /* SceneDelegate.swift */; };
 		8C5557AA28145D60002B687A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C5557A928145D60002B687A /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2AA576281967460049DEE6 /* MapViewController + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController + Constraints.swift"; sourceTree = "<group>"; };
+		8C2AA57A28196BE60049DEE6 /* MapViewController + ButtonsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController + ButtonsLogic.swift"; sourceTree = "<group>"; };
 		8C55579D28145D5D002B687A /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5557A028145D5D002B687A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C5557A228145D5D002B687A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,15 +60,57 @@
 		8C55579F28145D5D002B687A /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				8C5557A028145D5D002B687A /* AppDelegate.swift */,
-				8C5557A228145D5D002B687A /* SceneDelegate.swift */,
-				8C5557B428145D83002B687A /* MapViewController.swift */,
-				8C9C1A6C2818260C00BCD0CE /* AlertController.swift */,
-				8C5557A928145D60002B687A /* Assets.xcassets */,
-				8C5557AB28145D60002B687A /* LaunchScreen.storyboard */,
+				8CC7699B281D5FF800196F8B /* SupportFiels */,
+				8CC76997281D5FA500196F8B /* ViewControllers */,
+				8CC76998281D5FB800196F8B /* Extensions */,
+				8CC76999281D5FD500196F8B /* Applications */,
+				8CC7699A281D5FE900196F8B /* Storyboards */,
 				8C5557AE28145D60002B687A /* Info.plist */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		8CC76997281D5FA500196F8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C5557B428145D83002B687A /* MapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8CC76998281D5FB800196F8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C2AA576281967460049DEE6 /* MapViewController + Constraints.swift */,
+				8C9C1A6C2818260C00BCD0CE /* AlertController.swift */,
+				8C2AA57A28196BE60049DEE6 /* MapViewController + ButtonsLogic.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8CC76999281D5FD500196F8B /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				8C5557A928145D60002B687A /* Assets.xcassets */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		8CC7699A281D5FE900196F8B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8C5557AB28145D60002B687A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8CC7699B281D5FF800196F8B /* SupportFiels */ = {
+			isa = PBXGroup;
+			children = (
+				8C5557A028145D5D002B687A /* AppDelegate.swift */,
+				8C5557A228145D5D002B687A /* SceneDelegate.swift */,
+			);
+			path = SupportFiels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +185,9 @@
 			files = (
 				8C9C1A6D2818260C00BCD0CE /* AlertController.swift in Sources */,
 				8C5557A128145D5D002B687A /* AppDelegate.swift in Sources */,
+				8C2AA577281967460049DEE6 /* MapViewController + Constraints.swift in Sources */,
 				8C5557B528145D83002B687A /* MapViewController.swift in Sources */,
+				8C2AA57B28196BE60049DEE6 /* MapViewController + ButtonsLogic.swift in Sources */,
 				8C5557A328145D5D002B687A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
