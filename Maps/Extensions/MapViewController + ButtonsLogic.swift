@@ -35,6 +35,7 @@ extension MapViewController {
             if annotationsArray.count > 2 {
                 routeButton.isHidden = false
                 resetButton.isHidden = false
+
             }
             
             mapView.showAnnotations(annotationsArray, animated: true)

@@ -22,7 +22,7 @@ class MapViewController: UIViewController {
     
     let addAddress: UIButton = {
         let addressButton = UIButton()
-        addressButton.setTitle("ADD ADRESS", for: .normal)
+        addressButton.setTitle("ADD 3 ADDRESSES", for: .normal)
         addressButton.backgroundColor = .red.withAlphaComponent(0.5)
         addressButton.layer.cornerRadius = 10
         addressButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20)

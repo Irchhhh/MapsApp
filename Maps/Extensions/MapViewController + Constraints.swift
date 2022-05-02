@@ -24,7 +24,7 @@ func setConstrainsButtons() {
     NSLayoutConstraint.activate([
         addAddress.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 50),
         addAddress.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
-        addAddress.widthAnchor.constraint(equalToConstant: 150)
+        addAddress.widthAnchor.constraint(equalToConstant: 200)
     ])
     
     mapView.addSubview(routeButton)
